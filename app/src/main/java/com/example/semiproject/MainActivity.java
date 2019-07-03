@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         //메모가 완성이 될 때마다 리스트뷰가 완성되야 한다
         //상세 보기 화면 > textview 아니고 edittext로 하기
         //삭제할 땐 삭제하시겠습니까? 물어보고 삭제하기
-        
+        //위에 탭이 있다고 생각하기 > 메모 탭 / 회원정보 탭
+        //회원 정보는 수정할 필요 없고 뿌려만 주면 됨 > 여기서 비밀번호는 보여도 됨
+
     }
 }
