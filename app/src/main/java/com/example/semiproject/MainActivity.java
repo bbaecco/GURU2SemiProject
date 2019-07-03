@@ -12,9 +12,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //테스트 코드1
+        //소스도 수정
 
-        //오늘 컨디션 중간
-        
+
         //커밋 및 push 테스트
     }
 }
