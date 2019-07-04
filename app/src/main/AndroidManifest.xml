@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.semiproject">
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"
@@ -10,14 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MemoDetailTabActivity"></activity>
-        <activity android:name=".NewMemo_LocationFragment" />
-        <activity android:name=".NewMemo_CameraFragment" />
-        <activity android:name=".NewMemo_WriteFragment" />
         <activity android:name=".NewMemoTabActivity" />
-        <activity android:name=".InformationFragment" />
-        <activity android:name=".MemoFragment" />
         <activity android:name=".TabActivity" />
-        <activity android:name=".MemoActivity" />
         <activity android:name=".SignActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
