@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,58 +8,70 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:textSize="40dp"
-        android:textColor="#000000"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/ImgSign"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:src="@drawable/maleicon"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textSize="40dp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="사진 찍기"
-        android:textSize="20dp"
-        android:background="#cfcffc"/>
+        <ImageView
+            android:id="@+id/ImgSign"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/maleicon"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"/>
 
-    <EditText
-        android:id="@+id/SignEditID"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="ID 입력"/>
+        <Button
+            android:id="@+id/SignBtnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진 찍기"
+            android:textSize="20dp"
+            android:background="#cfcffc"/>
 
-    <EditText
-        android:id="@+id/SignEditName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="이름 입력"/>
+        <EditText
+            android:id="@+id/SignEditID"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="ID 입력"/>
 
-    <EditText
-        android:id="@+id/SignEditPW"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호 입력"/>
+        <EditText
+            android:id="@+id/SignEditName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="이름 입력"/>
 
-    <EditText
-        android:id="@+id/SignEditPWconfirm"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="비밀번호 확인"/>
+        <EditText
+            android:id="@+id/SignEditPW"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호 입력"/>
 
-    <Button
-        android:id="@+id/SignBtnSign"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="회원가입"
-        android:textSize="20dp"
-        android:background="#cfcffc"/>
-</LinearLayout>
+        <EditText
+            android:id="@+id/SignEditPWconfirm"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호 확인"/>
+
+        <Button
+            android:id="@+id/SignBtnSign"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textSize="20dp"
+            android:background="#cfcffc"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
