@@ -2,7 +2,10 @@ package com.example.semiproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,27 @@ public class MainActivity extends AppCompatActivity {
         //삭제할 땐 삭제하시겠습니까? 물어보고 삭제하기
         //위에 탭이 있다고 생각하기 > 메모 탭 / 회원정보 탭
         //회원 정보는 수정할 필요 없고 뿌려만 주면 됨 > 여기서 비밀번호는 보여도 됨
+
+        //로그인 버튼 눌러 메모 작성 화면으로 이동
+        Button btnLogin = findViewById(R.id.BtnLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TabActivity.class);
+                startActivity(intent);
+            }
+        });
+
+       //회원가입 버튼 눌러 회원가입 화면으로 이동
+        Button btnSignin = findViewById(R.id.BtnSignin);
+        btnSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SignActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }
