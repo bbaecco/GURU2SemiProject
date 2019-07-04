@@ -92,10 +92,11 @@ public class SignActivity extends AppCompatActivity {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     private final String TAG = this.getClass().getSimpleName();  //클래스명 획득
 
+    Button signBtnCamera;
+    ImageView imgSign;
 
-
-
-
+    //request code
+    final int CAMERA_REQUEST_CODE = 1;
 
 
     EditText signEditID, signEditName, signEditPW, signEditPWconfirm;
@@ -118,8 +119,23 @@ public class SignActivity extends AppCompatActivity {
 
         signBtnSign = findViewById(R.id.SignBtnSign);
 
-
         db = DataBase.getInstance(getApplicationContext());
+
+
+        //카메라
+        signBtnCamera = (Button)findViewById(R.id.SignBtnCamera);
+        imgSign = (ImageView)findViewById(R.id.ImgSign);
+
+        signBtnCamera.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if(IsCameraAvailable()){
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                    startActivityForResult(intent, CAMERA_REQUEST_CODE);
+                }
+            }
+        });
 
         //회원가입 버튼 이벤트
         signBtnSign.setOnClickListener(new View.OnClickListener() {
@@ -158,5 +174,23 @@ public class SignActivity extends AppCompatActivity {
             }
         });
 
+
+    }  //End OnCreate
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==CAMERA_REQUEST_CODE){
+            Bundle bundle = data.getExtras();
+            Bitmap bitmap = (Bitmap)bundle.get("data");
+            imgSign.setImageBitmap(bitmap);
+        }
+    }
+
+    //카메라 유무
+    public boolean IsCameraAvailable(){
+        PackageManager packageManager = getPackageManager();
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        return list.size() > 0;
     }
 }
