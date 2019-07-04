@@ -7,9 +7,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#F5E0CD"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:background="#5CACECC9"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,9 +20,9 @@
                 android:id="@+id/ViewMemoImgView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/maleicon"
+                android:layout_margin="10dp"
                 android:background="#ffffff"
-                android:layout_margin="10dp"/>
+                android:src="@drawable/maleicon" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,31 +32,37 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:text="메모 내용이 들어갑니다."
                     android:textSize="30dp"
-                    android:textStyle="bold"
-                    android:layout_margin="10dp"/>
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/ViewMemoBtnEdit"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="수정"/>
+                        android:backgroundTint="#DBF0F7"
+                        android:text="수정" />
+
                     <Button
                         android:id="@+id/ViewMemoBtnDel"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="삭제"/>
+                        android:backgroundTint="#DBF0F7"
+                        android:text="삭제" />
+
                     <Button
                         android:id="@+id/ViewMemoBtnDetail"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:text="상세보기"/>
+                        android:backgroundTint="#DBF0F7"
+                        android:text="상세보기" />
                 </LinearLayout> <!--버튼 리니어-->
 
             </LinearLayout><!--메모 텍스트뷰 + 버튼 리니어-->
@@ -66,12 +72,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2019.07.04"
             android:layout_gravity="right"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="2019.07.04"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </LinearLayout><!--이미지뷰 + 메모 텍스트뷰 + 버튼 리니어 + 날짜 텍스트뷰-->
 
