@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewMemo_LocationFragment"></activity>
+        <activity android:name=".MemoDetailTabActivity"></activity>
+        <activity android:name=".NewMemo_LocationFragment" />
         <activity android:name=".NewMemo_CameraFragment" />
         <activity android:name=".NewMemo_WriteFragment" />
         <activity android:name=".NewMemoTabActivity" />
