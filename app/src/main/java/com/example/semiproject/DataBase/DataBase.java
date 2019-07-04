@@ -118,7 +118,7 @@ public class DataBase {
     public boolean checkMember(String id, String pass){
         boolean isTrue = false;
 
-        if(id.isEmpty() || pass.isEmpty()){
+        if(id == null || pass == null){
             return isTrue;  //실패
         }
         //회원 획득
