@@ -7,7 +7,7 @@ public class MemberModel implements Serializable {
     private String id;
     private String pass;
     private String name;
-    private String birth;
+    private String passConfirm;
 
     @Override
     public String toString() {
@@ -15,7 +15,7 @@ public class MemberModel implements Serializable {
                 "id='" + id + '\'' +
                 ", pass='" + pass + '\'' +
                 ", name='" + name + '\'' +
-                ", birth='" + birth + '\'' +
+                ", passConfirm='" + passConfirm + '\'' +
                 '}';
     }
 
@@ -43,11 +43,11 @@ public class MemberModel implements Serializable {
         this.name = name;
     }
 
-    public String getBirth() {
-        return birth;
+    public String getpassConfirm() {
+        return passConfirm;
     }
 
-    public void setBirth(String birth) {
-        this.birth = birth;
+    public void setPassConfirm(String passConfirm) {
+        this.passConfirm = passConfirm;
     }
 }
