@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.example.semiproject.Model2.MemberModel;
 import com.example.semiproject.Model2.MyItem;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -86,52 +87,50 @@ public class DataBase {
         return  items;
     }
 
-//    //회원 저장
-//    public void setMember(MemberModel memberModel){
-//        //Member 객체를 Json 형태의 문자열로 변환
-//        String memberString = new GsonBuilder().serializeNulls().create().toJson(memberModel);
-//        Log.d("Database", "memberString" + memberString);
-//
-//        //저장
-//        SharedPreferences.Editor editor = sf.edit();
-//        editor.putString(memberModel. getId(), memberString);  //key : value 형식으로 저장
-//        editor.commit();
-//    }
-//
-//
-//
-//    //회원 조회
-//    public MemberModel getMember(String id){
-//        MemberModel memberModel = null;
-//
-//        //id를 이용해 회원 정보 획득
-//        String memberString = sf.getString(id, "");
-//        if(memberString != null && memberString.length() > 0){
-//            memberModel = new Gson().fromJson(memberString, MemberModel.class);
-//        }
-//        else{
-//            Log.e("Database", "member null");
-//        }
-//        return memberModel;
-//    }
-//
-//    //회원의 비밀번호 체크
-//    public boolean checkMember(String id, String pass){
-//        boolean isTrue = false;
-//
-//        if(id.isEmpty() || pass.isEmpty()){
-//            return isTrue;  //실패
-//        }
-//        //회원 획득
-//        MemberModel memberModel = getMember(id);  //호출을 통해 저장되어 있는 멤버를 획득
-//        if(memberModel == null){
-//            return isTrue;  //실패
-//        }
-//
-//        if(memberModel.getPass().equals(pass)){
-//            isTrue = true;  //성공
-//        }
-//        return  isTrue;
-//    }
+    //회원 저장
+    public void setMember(MemberModel memberModel){
+        //Member 객체를 Json 형태의 문자열로 변환
+        String memberString = new GsonBuilder().serializeNulls().create().toJson(memberModel);
+        Log.d("Database", "memberString" + memberString);
+
+        //저장
+        SharedPreferences.Editor editor = sf.edit();
+        editor.putString(memberModel. getId(), memberString);  //key : value 형식으로 저장
+        editor.commit();
+    }
+
+    //회원 조회
+    public MemberModel getMember(String id){
+        MemberModel memberModel = null;
+
+        //id를 이용해 회원 정보 획득
+        String memberString = sf.getString(id, "");
+        if(memberString != null && memberString.length() > 0){
+            memberModel = new Gson().fromJson(memberString, MemberModel.class);
+        }
+        else{
+            Log.e("Database", "member null");
+        }
+        return memberModel;
+    }
+
+    //회원의 비밀번호 체크
+    public boolean checkMember(String id, String pass){
+        boolean isTrue = false;
+
+        if(id.isEmpty() || pass.isEmpty()){
+            return isTrue;  //실패
+        }
+        //회원 획득
+        MemberModel memberModel = getMember(id);  //호출을 통해 저장되어 있는 멤버를 획득
+        if(memberModel == null){
+            return isTrue;  //실패
+        }
+
+        if(memberModel.getPass().equals(pass)){
+            isTrue = true;  //성공
+        }
+        return  isTrue;
+    }
 
 }
