@@ -4,36 +4,51 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.semiproject.DataBase.DataBase;
+import com.example.semiproject.Model2.MemberModel;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final String TAG = this.getClass().getSimpleName();  //클래스명 획득
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 로그인 실패 메세지 : 다이얼로그 또는 토스트
-        // 회원이 아닌데 로그인 : 회원이 아닙니다
-        //리스트를 제이슨으로 저장하고 뽑고
-        //사진이 찍힌 경로를 잘 저장하고 있어야 함
-        //회원가입한 사람의 메모가 다 보여야 함
-        //위치 정보는 아직 안배워서 안해도 됨
-        //사진을 안찍으면 저장이 되면 안됨
-        //메모가 완성이 될 때마다 리스트뷰가 완성되야 한다
-        //상세 보기 화면 > textview 아니고 edittext로 하기
-        //삭제할 땐 삭제하시겠습니까? 물어보고 삭제하기
-        //위에 탭이 있다고 생각하기 > 메모 탭 / 회원정보 탭
-        //회원 정보는 수정할 필요 없고 뿌려만 주면 됨 > 여기서 비밀번호는 보여도 됨
-
         //로그인 버튼 눌러 메모 작성 화면으로 이동
         Button btnLogin = findViewById(R.id.BtnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TabActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), TabActivity.class);
+//                startActivity(intent);
+
+                //DB에 저장된 아이디, 패스워드와 로그인 화면에서 입력받은 아이디, 패스워드가 같으면 로그인 토스트 띄우고 메모 화면으로
+                //다르면 다시 입력받기 토스트
+
+                DataBase db = DataBase.getInstance(getApplicationContext());
+                MemberModel memberModel = new MemberModel();
+
+                //ID, PASS 체크
+                boolean check = db.checkMember(memberModel.getId(), memberModel.getPass());
+                Log.d(TAG, "checkedMember" + check);
+
+                if(check == true){
+                    Toast.makeText(getApplicationContext(), "로그인 되었습니다.", Toast.LENGTH_SHORT).show();
+
+                    //탭 액티비티로 넘어가기
+                    Intent intent = new Intent(getApplicationContext(), TabActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "아이디, 패스워드가 알맞지 않습니다. 다시 확인하세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -46,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
     }

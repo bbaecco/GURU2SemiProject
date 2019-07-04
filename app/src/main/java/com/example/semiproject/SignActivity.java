@@ -41,55 +41,6 @@ import java.util.List;
 
 public class SignActivity extends AppCompatActivity {
 
-    //    Button signBtnCamera;
-//    ImageView imgSign;
-//
-//    //request code
-//    final int CAMERA_REQUEST_CODE = 1;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_sign);
-//
-//
-//        signBtnCamera = (Button)findViewById(R.id.SignBtnCamera);
-//        imgSign = (ImageView)findViewById(R.id.ImgSign);
-//
-//        signBtnCamera.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if(IsCameraAvailable()){
-//                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//
-//                    startActivityForResult(intent, CAMERA_REQUEST_CODE);
-//                }
-//            }
-//        });
-//    }
-//
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if(requestCode==CAMERA_REQUEST_CODE){
-//            Bundle bundle = data.getExtras();
-//            Bitmap bitmap = (Bitmap)bundle.get("data");
-//            imgSign.setImageBitmap(bitmap);
-//        }
-//    }
-//
-//    //카메라 유무
-//    public boolean IsCameraAvailable(){
-//        PackageManager packageManager = getPackageManager();
-//        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-//        return list.size() > 0;
-//    }
-//
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
     private final String TAG = this.getClass().getSimpleName();  //클래스명 획득
 
     Button signBtnCamera;
@@ -156,10 +107,8 @@ public class SignActivity extends AppCompatActivity {
                 memberModel.setPass(signEditName.getText().toString());
                 memberModel.setName(signEditPW.getText().toString());
 
-                //ID, PASS 체크
-//                boolean check = db.checkMember(signEditID.getText().toString(), signEditPW.getText().toString());
-//                Log.d(TAG, "checkedMember" + check);
-                if(signEditPW.getText().toString().equals(signEditPWconfirm.getText().toString())){
+                //패스워드 동일 여부 체크
+                if(signEditPW.getText().toString().equals(signEditPWconfirm.getText().toString())){  //같으면
                     Toast.makeText(getApplicationContext(), "패스워드가 동일합니다. 회원이 되신 것을 환영합니다.", Toast.LENGTH_LONG).show();
                     finish();
 
@@ -167,13 +116,12 @@ public class SignActivity extends AppCompatActivity {
                     DataBase.getInstance(getApplicationContext()).setMember(memberModel);  //위에 DataBase db = DataBase.getInstance(getApplicationContext()); 이 문장 없으면 이렇게 써야 함
                     db.setMember(memberModel);
                 }
-                else{
+                else{  //다르면
                     Toast.makeText(getApplicationContext(), "패스워드가 동일하지 않습니다. 다시 확인바랍니다.", Toast.LENGTH_LONG).show();
                 }
 
             }
         });
-
 
     }  //End OnCreate
 
