@@ -54,12 +54,14 @@
             android:id="@+id/SignEditPW"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="비밀번호 입력"/>
 
         <EditText
             android:id="@+id/SignEditPWconfirm"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="비밀번호 확인"/>
 
         <Button
