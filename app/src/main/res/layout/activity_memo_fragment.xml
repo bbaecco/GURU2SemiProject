@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/MemoBtnAddMemo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="새메모 작성"
@@ -15,9 +16,10 @@
         android:background="#cfcffc"/>
 
     <ListView
+        android:id="@+id/MemoListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
     </ListView>
 
 </LinearLayout>
